@@ -1,0 +1,203 @@
+/* Mobile-first styles for newsletter sign-up and success message */
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--neutral-blue-700, hsl(235, 18%, 26%));
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper-signup-form,
+.wrapper-success-message {
+  background: var(--white, #fff);
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: none;
+}
+
+.wrapper-signup-form {
+  display: block;
+}
+
+.wrapper-success-message {
+  display: none;
+}
+
+header {
+  text-align: left;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+picture,
+header img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+main p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 2rem;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+ul li::before {
+  content: '';
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url('assets/images/icon-list.svg') no-repeat center center/contain;
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+input[type="email"] {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--grey, hsl(0,0%,58%));
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 0.5rem;
+  transition: border 0.2s;
+}
+
+input[type="email"]:focus {
+  border: 1.5px solid var(--primary, hsl(4, 100%, 67%));
+}
+
+button[type="submit"],
+.wrapper-success-message button {
+  background: var(--neutral-blue-800, hsl(234, 29%, 20%));
+  color: var(--white, #fff);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+button[type="submit"]:hover,
+.wrapper-success-message button:hover {
+  background: var(--primary, hsl(4, 100%, 67%));
+  color: var(--white, #fff);
+}
+
+.wrapper-success-message {
+  text-align: left;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.wrapper-success-message header img {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper-success-message h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+.wrapper-success-message p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+.wrapper-success-message strong {
+  font-weight: 700;
+  color: var(--neutral-blue-800, hsl(234, 29%, 20%));
+}
+
+footer {
+  margin-top: auto;
+  padding: 2rem 0 1rem 0;
+  background: none;
+}
+
+.attribution {
+  color: var(--grey, hsl(0,0%,58%));
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Responsive: Hide/show forms for success state (JS should toggle these classes) */
+body.success .wrapper-signup-form {
+  display: none;
+}
+body.success .wrapper-success-message {
+  display: block;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 480px) {
+  .wrapper-signup-form,
+  .wrapper-success-message {
+    max-width: 100vw;
+    border-radius: 0;
+    padding: 1.5rem 1rem 2rem 1rem;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+  header h1,
+  .wrapper-success-message h1 {
+    font-size: 1.5rem;
+  }
+  ul li {
+    font-size: 0.95rem;
+    padding-left: 1.75rem;
+  }
+  .wrapper-success-message header img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
